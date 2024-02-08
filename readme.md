@@ -307,6 +307,21 @@ ul - upper left]
 }
 ```
 
+# Testing
+
+To test the test cases first install the `pytest` library using the following command.
+
+``` 
+pip install pytest==8.0.0
+```
+
+Execute the tests by running 
+
+```
+pytest tests
+```
+
+Please note that 2 test cases will fail for create_metadata if metadata is already present. If you want all test cases to pass delete all files in the `/pdfs` folder
 
 
 
