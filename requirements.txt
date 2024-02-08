@@ -1,0 +1,15 @@
+openai==0.28.0
+PyMuPDF==1.23.8
+PyMuPDFb==1.23.7
+PyPDF2==3.0.1
+langchain==0.0.198
+faiss-cpu==1.7.4
+fastapi==0.106.0
+uvicorn==0.25.0
+tiktoken==0.4.0
+flask==3.0.0
+validators==0.22.0
+selenium==4.16.0
+webdriver_manager==4.0.1
+requests-html==0.10.0
+asgiref==3.7.2
