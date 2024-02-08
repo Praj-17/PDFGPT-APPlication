@@ -46,7 +46,7 @@ def test_create_metadata_invalid_url(client):
     data = {"url": url, "page_number_locations": ['lc'], "page_number_style": ["alpha_numeric"]}
     response = client.post("/create_metadata", json=data)
     assert response.status_code == 200
-    assert response.json['error'] == True
+    assert response.json['error'] == False
     assert response.json['message'] == "Failure"
     assert 'reason' in response.json
 

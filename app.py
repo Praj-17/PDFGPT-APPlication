@@ -231,8 +231,6 @@ def create_metadata():
                         embedding_path = embed_pdf.save_generated_embeddings(file_path)
                         index_path = faiss_search.save_faiss_index(embedding_path)
                         status = False
-                        print(file_path, type(file_path))
-                        print(json_path, type(json_path))
                     else:
                         reason = f"Metadata is already created at {file_path_existing}"
                         status = False
