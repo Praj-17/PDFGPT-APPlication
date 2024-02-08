@@ -15,7 +15,9 @@ def test_generate_questions_all_text_success(client):
     assert response.status_code == 200
     assert response.json['error'] == False
     assert response.json['message'] == "Success"
-    assert 'data' in response.json
+    assert 'data' in response.json 
+    assert response.json['data'] != []
+
 
 def test_generate_questions_single_page_success(client):
     
@@ -24,7 +26,8 @@ def test_generate_questions_single_page_success(client):
     assert response.status_code == 200
     assert response.json['error'] == False
     assert response.json['message'] == "Success"
-    assert 'data' in response.json
+    assert 'data' in response.json 
+    assert response.json['data'] != []
 
 def test_generate_questions_invalid_mode(client):
     data = {"mode": "invalid_mode", "url": url, "num_questions": num_questions}
@@ -32,7 +35,8 @@ def test_generate_questions_invalid_mode(client):
     assert response.status_code == 200
     assert response.json['error'] == True
     assert response.json['message'] == "Failure"
-    assert 'reason' in response.json
+    assert 'data' in response.json 
+    assert response.json['data'] == []
 
 def test_generate_questions_interval_success(client):
     
@@ -41,7 +45,8 @@ def test_generate_questions_interval_success(client):
     assert response.status_code == 200
     assert response.json['error'] == False
     assert response.json['message'] == "Success"
-    assert 'data' in response.json
+    assert 'data' in response.json 
+    assert response.json['data'] != []
 
 # Add more test cases for different scenarios
 

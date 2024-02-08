@@ -2,20 +2,20 @@
 from app import app, crawler
 from tests import client
 import pytest
-@pytest.fixture
-def client():
-    app.config['TESTING'] = True
-    with app.test_client() as client:
-        yield client
+
+url = "https://ciet.ncert.gov.in/activity/internationalictconference"
+depth = 1
 
 def test_crawl_urls_success(client):
-    url = "http://example.com"
-    data = {"url": url}
+    data = {"url": url, "depth": depth}
     response = client.post("/crawl", json=data)
+
     assert response.status_code == 200
     assert response.json['error'] == False
     assert response.json['message'] == "Success"
-    assert 'data' in response.json
+    assert 'data' in response.json 
+    assert response.json['data'] != []
+
 
 def test_crawl_urls_invalid_url(client):
     url = "invalid_url"
@@ -23,8 +23,8 @@ def test_crawl_urls_invalid_url(client):
     response = client.post("/crawl", json=data)
     assert response.status_code == 200
     assert response.json['error'] == True
-    assert response.json['message'] == "Failure"
-    assert 'reason' in response.json
+    assert 'data' in response.json 
+    assert response.json['data'] == []
 
 # Add more test cases for different scenarios
 

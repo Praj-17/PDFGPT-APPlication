@@ -45,8 +45,6 @@ faiss_search = FaissSearch()
 @app.route("/", methods=["POST"])
 def generate_questions():
     data = request.json
-    print("entered")
-    # data = []
     questions = []
     status = True
     reason = ""
@@ -155,11 +153,11 @@ def chatwithpdf():
                     status = False
                 elif data.get("page_number"):
                     if data["mode"] == 'single':
-                        answer, index_number, results  = chat.chat_with_single_page(url=url, page_number=data["page_number"], page_number_location=page_number_locations, question=question, chat_history=chat_history)
+                        answer, index_number, results  = chat.chat_with_single_page(url=url, page_number=data["page_number"], page_number_location=page_number_locations,page_number_style = page_number_style, question=question, chat_history=chat_history)
                         status = False
                     elif data["mode"] == 'interval':
                         if data['interval']:
-                            answer, index_number, results  = chat.chat_with_page_interval(url=url, page_number=data["page_number"],  interval=interval, page_number_location=page_number_locations, question=question, chat_history=chat_history)
+                            answer, index_number, results  = chat.chat_with_page_interval(url=url, page_number=data["page_number"],  interval=interval, page_number_location=page_number_locations,page_number_style = page_number_style, question=question, chat_history=chat_history)
                             status = False
                         else:
                             reason = "param 'interval' nor provided, defaulting to 1"
