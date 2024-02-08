@@ -1,5 +1,6 @@
 from tests import client
 from app import app, chat
+import pytest
 
 @pytest.fixture
 def client():

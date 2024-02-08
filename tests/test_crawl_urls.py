@@ -1,7 +1,7 @@
 
 from app import app, crawler
 from tests import client
-
+import pytest
 @pytest.fixture
 def client():
     app.config['TESTING'] = True

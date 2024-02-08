@@ -1,6 +1,7 @@
 
 from app import app, url_to_somethig, embed_pdf, faiss_search
 from tests import client
+import pytest
 
 @pytest.fixture
 def client():
